@@ -1,0 +1,45 @@
+{% extends 'base.html'  %}
+
+{% block content  %}
+    <div class="container">
+         <div class="row">
+             <div class="col-md-8">
+                 <h1 CLASS="text-center mt-2"></h1>
+                 <img src="{{article.image.url}}" alt="" style="max-width: 600px">
+                 <h2>{{article.title}}</h2>
+                 <p>{{article.desc}}</p>
+             </div>
+             <div class="col-md-4">
+                  <h3 class="mt-2">les articles en relation</h3>
+                    <div class="row">
+                        {% for art in aer  %}
+                        {% if art.id != article.id  %}
+                        <div class="col-md-7 mb-1">
+                            <a href="{% url 'detail' art.id %}">
+                            {% if art.image != "http://default"  %}
+                            <img src="{{art.image.url}}" alt="" style="width: 200px">
+
+
+                            {% endif %}
+                            </a>
+
+                        </div>
+
+                        <div class="col-md-5">
+                            <a href="{% url 'detail' art.id %}">
+                            <strong>{{art.title}}</strong> <br>
+                            </a>
+                            <a href="{% url 'detail' art.id %}">
+                            {{art.desc | truncatewords:7}}
+                            </a>
+
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+
+             </div>
+         </div>
+    </div>
+{% endblock %}

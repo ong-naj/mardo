@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} inscription {% endblock %}
+
+{% block content %}
+{% include "_nav.html"  %}
+    <div class="container">
+       <div class="col-md-12 mt-5">
+           {% if messages %}
+           {% for message in messages %}
+            <div class="alert alert-danger text-center"><strong>{{message}}<strong/><div/>
+           {% endfor %}
+           {% endif %}
+           <form action="" method="POST"> {% csrf_token %}
+            <div class="card bg-dark text-white ">
+                <div class="card-header text-center"><i class="fas fa-user"><i/>Inscription à nos cours<div/>
+                 <div class="card-body">
+                     {{form}}
+                 <div class="card-footer text-center">
+                     <button class="btn btn-primary btn-block">Se connecter<button/>
+                 <div/>
+            <div/>
+           <form/>
+        <div/>
+    <div/>
+{% endblock %}
+
